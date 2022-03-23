@@ -12,21 +12,21 @@
                             <img :src="getImg(index)" alt="">
                         </div>
                         <div class="item__title">
-                            <p>Wizkid kkxkx</p>
+                            <p>{{events[index]?.title}}</p>
                         </div>
                         <div class="location__date" >
                             <div style="marginRight:20px" class="loc" >
-                                <img src="../../assets/images/akar-icons_location.png" alt="">
-                                <p>Lagos</p>
+                                <img id="location__image" src="../../assets/images/akar-icons_location.png" alt="">
+                                <p>{{events[index]?.venue.city}}</p>
                             </div>
                             <div class="loc">
                                 <img src="../../assets/images/calendar.png" alt="">
-                                <p>28th, mar, 2020</p>
+                                <p>{{getDate(events[index]?.datetime)}}</p>
                             </div>
                             
                         </div>
                         <div class="date">
-                            <p>Starting from <span>₦15000</span> </p>
+                            <p> <img src="../../assets/images/price.png" alt=""> Starting from <span>₦15000</span> </p>
                             <button>Buy Ticket</button>
                         </div>
                     </div>
@@ -49,6 +49,7 @@ import FeaturedSkeleton from '../../components/FeaturedSkeleton/FeaturedSkeleton
 import { mapState } from 'vuex'
 // import FeaturedBox from '../../components/Featured/FeaturedBox.vue'
 import { images } from '../../api/DummyImages'
+import { formatDate } from '../../utils/getDate'
 
 export default {
 
@@ -71,13 +72,20 @@ export default {
             eventsLoading : (state)=> state.TicketModule.loadingEvents,
             events : (state) => state.TicketModule.tickets
         }),
-        // get random events from all events state
+    
+
+        
         
 
     },
     methods:{
         getImg(index){
             return images[index].url
+        },
+
+        // format date
+        getDate(date){
+           return  formatDate(date)
         }
     }
 
@@ -114,6 +122,7 @@ $blue  : #372AA4;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 8px;
         }
     }
 
@@ -134,6 +143,10 @@ $blue  : #372AA4;
             display: flex;
             align-items: center;
             margin-top: 10px;
+
+            #loacation__image{
+                height: 18px;
+            }
 
             p{
                 font-size: 15px;
@@ -157,15 +170,22 @@ $blue  : #372AA4;
         p{
             font-size: 15px;
             color: #6C757D;
+            text-align: left;
 
             span{
                 color: #372AA4;
                 font-weight: 600;
             }
+
+            img{
+                margin-right: 10px;
+                height: 16px;
+            }
         }
 
         button{
-             padding: 8px 10px;
+
+            padding: 8px 10px;
             background: none;
             border: 1px solid $blue;
             border-radius: 6px;
@@ -193,14 +213,37 @@ $blue  : #372AA4;
         }
 
         .location__date{
+
             flex-direction: column;
             align-items: flex-start;
+
+            .loc{
+
+                img{
+                    height: 12px;
+                }
+
+                p{
+                    font-size: 14px;
+                }
+            }
         }
 
         .date{
+
             flex-direction: column;
             align-items: flex-start;
-            margin-top: 5px;
+            margin-top: 10px;
+            margin-right: 5px;
+
+            P{  
+                text-align: left;
+                span{
+                    display: none;
+                }
+            }
+
+            
         }
 
 

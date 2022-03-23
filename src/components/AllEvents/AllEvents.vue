@@ -5,17 +5,35 @@
     </div>
     <div v-else class="all__in">
         <p>All Events</p>
-        <div class="events" >
+        <div v-if="searchValue.length > 0" >
+            
+            <!-- render sections based on search -->
+            <section class="events"  v-if="searchedEvents.length > 0  " >
+                <div class="event__box" v-for="(ticket, index) in searchedEvents" :key="index"  >
+                    <Event 
+                        :index="index"
+                        :name = "ticket.artist?.name"
+                        :location = "ticket.venue.city"
+                        :dateTime = "ticket.datetime"
+                        :url = "ticket.url"
+                    />
+                </div>
+            </section> 
+            <div class="no-result" v-else >
+                not found
+            </div>  
+        </div>
+        <section v-else class="events" >
             <div class="event__box" v-for="(ticket, index) in currentTemplates" :key="index"  >
                 <Event 
                     :index="index"
                     :name = "ticket.artist?.name"
-                    :location = "ticket.venue.location"
+                    :location = "ticket.venue.city"
                     :dateTime = "ticket.datetime"
                     :url = "ticket.url"
                 />
             </div>
-        </div>
+        </section>
         <div class="pagination">
             <img @click="prev()" src="../../assets/images/next.png" alt="">
             <span>{{currentPage}}</span>
@@ -71,7 +89,10 @@ export default {
 
         ...mapState({
             tickets : (state)=> state.TicketModule.tickets,
-            eventsLoading : (state) => state.TicketModule.loadingEvents
+            eventsLoading : (state) => state.TicketModule.loadingEvents,
+            searchedEvents : (state) => state.TicketModule.searchedEvents,
+            searchValue : (state) => state.TicketModule.searchValue
+   
         }),
 
         currentTemplates(){
@@ -123,6 +144,7 @@ export default {
                 box-shadow: rgba(0, 0, 0, 0.02) 0px 3px 5px;
                 border-radius: 10px;
                 transition: 0.3s ease-in;
+                max-height: 500px;
             }
 
             .event__box:hover{

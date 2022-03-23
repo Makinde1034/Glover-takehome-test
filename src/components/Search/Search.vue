@@ -2,8 +2,8 @@
     <div class="search" >
         <div class="search__in">
             <form  class="input__wrap">
-                <img  src="../../assets/images/Search.png" alt="searc-icon">
-                <input v-on:input="searchEvent($event)" v-model="textField" placeholder="Search" type="text">
+                <img  src="../../assets/images/Search.png" alt="searc-icon"> 
+                <input required v-on:input="search($event)"  v-model="textField" placeholder="Search" type="text">
             </form>
         </div>
     </div>
@@ -11,7 +11,7 @@
 
 <script>
 
-import { mapGetters } from 'vuex'
+import { mapActions,mapState } from 'vuex'
 
 export default {
 
@@ -21,13 +21,19 @@ export default {
         }
     },
     methods:{
-        searchEvent(e){
-            console.log(e.target.value)
-            this.filterEvents(e.target.value)
+        ...mapActions('TicketModule',['searchEvent',"setSearchValue"]),
+
+        search(e){
+            // console.log(e.target.value.split(""))
+            this.searchEvent(this.textField);
+            this.setSearchValue(e.target.value)
+            
         }
     },
     computed:{
-        ...mapGetters('TicketModule',['filterEvents']),    
+       ...mapState({
+           searchValue : (state) => state.TicketModule.searchValue
+       })
     }
 }
 </script>

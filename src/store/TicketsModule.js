@@ -1,3 +1,4 @@
+
 import ticketsApi from '../api/index.js'
 
 const toggle = {
@@ -6,16 +7,14 @@ const toggle = {
 
 		return{
 			tickets : [],
-            loadingEvents : false
+            loadingEvents : false,
+            searchedEvents : [],
+            searchValue : ""
+
+            
 		}
 	},
-    getters:{
-
-        filterEvents: (state) => (searchString) => {   
-            return state.tickets.find(tic => tic.title === searchString)
-        }
-        
-    },
+    
 	actions:{
 		async getTickets({commit}){
 
@@ -34,6 +33,37 @@ const toggle = {
 
         },
 
+        // search event
+        searchEvent({commit,state},text){
+            console.log(state.tickets.length)
+            if(text.length === 0 ){
+                return commit("setSearchEvents",[])
+            }
+
+            const filtered = state.tickets.filter(ticket=> {
+
+                if(ticket.artist ){
+                    // deep  search events
+                    return ticket.artist.name.toLowerCase().indexOf(text.toLowerCase()) !== -1
+                }
+
+               
+            })
+            commit("setSearchEvent",filtered)
+            console.log(filtered, ' --pppp')
+            commit("dkd")
+        },
+
+        setSearchValue({commit},searchValue){
+            commit("setSearchValue",searchValue)
+        }
+
+       
+
+        
+
+        
+
 	},
 	mutations:{
 		setTickets(state,payload){
@@ -47,7 +77,16 @@ const toggle = {
         },
         eventsRequestFailure(state){
             state.loadingEvents = false
+        },
+        setSearchEvent(state,payload){
+            state.searchedEvents = payload
+        },
+        // set search value
+        setSearchValue(state,payload){
+            state.searchValue = payload
         }
+
+       
 	}
 }
 

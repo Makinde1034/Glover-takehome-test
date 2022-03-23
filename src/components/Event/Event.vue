@@ -4,14 +4,14 @@
             <img :src="getImg(index)" alt="evetn image">
         </div>
         <div class="event__name__date">
-            <p>{{ !name ? "Event name" : name}}</p>
+            <p class="title" >{{ !name ? getEventTitle(index) : name}}</p>
             <div class="date">
                 <p>{{new Date(dateTime).getDate()}} {{month[new Date(dateTime).getMonth()].substring(0,3)}}</p>
             </div>
         </div>
         <div class="event__location">
             <img src="../../assets/images/akar-icons_location.png" alt="location-icon">
-            <p>Lagos</p>
+            <p>{{location}}</p>
         </div>
         <div class="event__price" >
             <img src="../../assets/images/price.png" alt="location-icon">
@@ -47,6 +47,10 @@ export default {
         // select images from dummy images based on event index
         getImg(index){
             return images[index].url
+        },
+
+        getEventTitle(index){
+            return images[index].title
         }
     },
     computed:{
@@ -92,6 +96,8 @@ $blue  : #372AA4;
 
         p{
             font-weight: 600;
+            font-size: 14px;
+
         }
         display: flex;
         justify-content: space-between;
@@ -109,6 +115,11 @@ $blue  : #372AA4;
             color: #FF6A2C;
             font-size: 12px
 
+        }
+
+        .title{
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
         }
     }
 
@@ -135,6 +146,7 @@ $blue  : #372AA4;
         }
         p{
             color: #6C757D;
+            font-size: 14px;
 
         }
 
