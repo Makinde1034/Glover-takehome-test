@@ -146,7 +146,7 @@ export default {
             .event__box{
                 // height: 300px;
                 background: white;
-                box-shadow: rgba(0, 0, 0, 0.02) 0px 3px 5px;
+                box-shadow: rgba(154, 154, 177, 0.2) 0px 2px 5px 0px, rgba(128, 125, 125, 0.07) 0px 1px 1px 0px;
                 border-radius: 10px;
                 transition: 0.3s ease-in;
                 max-height: 500px;

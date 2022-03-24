@@ -126,7 +126,7 @@ export default {
                 width: 100%;
                 background-color: white;
                 margin-right: 20px;
-                box-shadow: rgba(0, 0, 0, 0.02) 0px 3px 5px;
+                box-shadow: rgba(154, 154, 177, 0.2) 0px 2px 5px 0px, rgba(128, 125, 125, 0.07) 0px 1px 1px 0px;
                 font-size: 20px;
                 border-radius: 8px;
                 align-items: flex-start;
