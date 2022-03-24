@@ -269,7 +269,7 @@ export default {
                     }
 
                     p{
-                        font-size: 14px;
+                        font-size: 12px;
                     }
                 }
 
@@ -295,7 +295,11 @@ export default {
                     }
 
                     p{
-                        font-size: 14px;
+                        font-size: 12px;
+                    }
+
+                    .start,.naire{
+                        font-size: 12px;
                     }
 
                     .price__price{
