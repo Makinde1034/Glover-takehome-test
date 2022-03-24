@@ -21,7 +21,7 @@
                             </div>
                             <div class="loc">
                                 <img src="../../assets/images/calendar.png" alt="">
-                                <p>{{getDate(events[index]?.datetime)}}</p>
+                                <p id="day" >{{getDate(events[index]?.datetime)}}</p>
                             </div>
                             
                         </div>
@@ -262,7 +262,7 @@ export default {
             
 
                 .loc{
-                    
+
                     align-items: flex-start;
 
                     img{
@@ -271,7 +271,11 @@ export default {
                     }
 
                     p{
-                        font-size: 12px;
+                        font-size: 8px;
+                    }
+
+                    #day{
+                        font-size: 8px;
                     }
                 }
 
