@@ -1,10 +1,10 @@
 <template>
     <div class="event" >
         <div class="event__image">
-            <img :src="getImg(index)" alt="evetn image">
+            <img :src="getRandomImg()" alt="evetn image">
         </div>
         <div class="event__name__date">
-            <p class="title" >{{ !name ? getEventTitle(index) : name}}</p>
+            <p class="title" >{{ !name ? getRandomEventTitle(index) : name}}</p>
             <div class="date">
                 <p>{{new Date(dateTime).getDate()}} {{month[new Date(dateTime).getMonth()].substring(0,3)}}</p>
             </div>
@@ -39,18 +39,17 @@ export default {
     props : ["imageUrl","name","location","dateTime","url", "index"],
 
     methods:{
-
-        // getImgUrl(pic) {
-        //     var images = require.context('../../../public/dummyAssets/', false, /\.jpg$/)
-        //     return images('./' + pic + ".jpg")
-        // }
-        // select images from dummy images based on event index
-        getImg(index){
-            return images[index].url
+        // select random images from dummy images based on event index
+        getRandomImg(){
+            const rnd = Math.floor(Math.random() * 26) + 1
+            return images[rnd]?.url
+           
         },
 
-        getEventTitle(index){
-            return images[index].title
+        getRandomEventTitle(){
+            const rnd = Math.floor(Math.random() * 26) + 1
+            return images[rnd]?.title
+          
         }
     },
     computed:{
@@ -84,7 +83,9 @@ $main__font :  'Nunito', sans-serif;
     padding: 10px 10px 14px 10px;
 
     .event__image{
-
+        height: 150px;
+        border: 1px solid rgb(198, 193, 193);
+        border-radius:10px ;
         img{
             width: 100%;
             height: 150px;

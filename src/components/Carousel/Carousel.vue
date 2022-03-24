@@ -5,6 +5,7 @@
             <FeaturedSkeleton />
         </div>
         <div class="featured__wrap" v-else>
+            <p class="featured__header" >Featured events</p>
             <carousel :color="red" :items-to-show="2" :wrap-around="true">
                 <slide v-for="(items,index)  in 4" :key="index">
                     <div  class="item">
@@ -120,6 +121,12 @@ export default {
 
             width: 100%;
             max-width: 1500px;
+
+            .featured__header{
+                font-family: 'Nunito', sans-serif;
+                font-weight: 600;
+                margin-bottom: 20px;
+            }
 
             .item{
                 // height: 200px;

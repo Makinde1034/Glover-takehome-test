@@ -71,14 +71,23 @@ export default {
         // pagination functions
  
         next(){
-     
-            
+
             this.currentPage =  Math.min(this.currentPage + 1, Math.ceil(this.tickets.length / this.templatesPerPage)  )
+            window.scrollTo({
+                top : 0,
+                behavior : "smooth"
+            })
 
         },
+
         prev(){
             this.currentPage =  Math.max(this.currentPage - 1, 1  )
+            window.scrollTo({
+                top : 0,
+                behavior : "smooth"
+            })
         },
+
         getImgUrl(pic) {
             return require('../../../public/dummyAssets/'+pic)
         }
