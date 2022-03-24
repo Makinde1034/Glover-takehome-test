@@ -179,6 +179,7 @@ $main__font :  'Nunito', sans-serif;
         font-weight: 600;
         font-size: 12px;
         cursor: pointer;
+        outline : "none"
     }
 
     
