@@ -34,6 +34,7 @@ export default {
 
 }
 
+$main__font :  'Nunito', sans-serif;
 
 header{
 
@@ -51,7 +52,7 @@ header{
         .nav__left{
 
             h3{
-                font-family: 'Nunito', sans-serif;
+                font-family: $main__font;
                 font-size: 26px
             }
         }
@@ -69,6 +70,9 @@ header{
             p{
                 margin: 0px 16px 0px 16px;
                 font-weight: 700;
+                font-family: $main__font;
+                
+
             }
 
 

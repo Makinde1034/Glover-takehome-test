@@ -74,6 +74,8 @@ export default {
 }
 
 $blue  : #372AA4;
+$main__font :  'Nunito', sans-serif;
+
 
 
 .event{
@@ -97,6 +99,7 @@ $blue  : #372AA4;
         p{
             font-weight: 600;
             font-size: 14px;
+            font-family: $main__font;
 
         }
         display: flex;
@@ -119,7 +122,9 @@ $blue  : #372AA4;
 
         .title{
             font-size: 14px;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Nunito', sans-serif;
+            color:  #2F2F2F;
+
         }
     }
 
@@ -132,6 +137,8 @@ $blue  : #372AA4;
         }
         p{
             color: #6C757D;
+            font-size: 14px;
+            font-family: $main__font;
 
         }
     }
@@ -144,9 +151,11 @@ $blue  : #372AA4;
         img{
             margin-right :10px
         }
+
         p{
             color: #6C757D;
             font-size: 14px;
+            font-family: $main__font;
 
         }
 

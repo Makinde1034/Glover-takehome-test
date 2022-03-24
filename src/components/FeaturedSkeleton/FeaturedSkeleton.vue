@@ -65,21 +65,21 @@ export default {
 
 
 @keyframes pulse {
-0% {
+    0% {
         background-color: rgba(165, 165, 165, 0.1);
-        }
-        50% {
-            background-color: rgba(165, 165, 165, 0.4);
-        }
-        100% {
-            background-color: rgba(165, 165, 165, 0.1);
+    }
+    50% {
+        background-color: rgba(165, 165, 165, 0.4);
+    }
+    100% {
+        background-color: rgba(165, 165, 165, 0.1);
     }
 }
 
 
 @media screen and (max-width:481px) {
     .feat__ske{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 </style> 

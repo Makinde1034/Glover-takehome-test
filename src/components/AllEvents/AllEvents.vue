@@ -4,7 +4,7 @@
         <AllEventsSkeleton />
     </div>
     <div v-else class="all__in">
-        <p>All Events</p>
+        <p class="all_h">All Events</p>
         <div v-if="searchValue.length > 0" >
             
             <!-- render sections based on search -->
@@ -126,6 +126,11 @@ export default {
     .all__in{
         width: 100%;
         max-width: 1500px;
+
+        .all_h{
+
+            font-family: 'Nunito', sans-serif;
+        }
 
         p{
             font-weight: 600;

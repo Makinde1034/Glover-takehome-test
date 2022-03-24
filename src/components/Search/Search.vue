@@ -3,7 +3,7 @@
         <div class="search__in">
             <form  class="input__wrap">
                 <img  src="../../assets/images/Search.png" alt="searc-icon"> 
-                <input required v-on:input="search($event)"  v-model="textField" placeholder="Search" type="text">
+                <input required v-on:input="search($event)"  v-model="textField" placeholder="Search artist e.g John legend" type="text">
             </form>
         </div>
     </div>

@@ -2,9 +2,7 @@
     <div class="landing">
         <Nav />
         <Search />
-        <!-- <FeaturedEvents />  -->
         <Carousel />
-        
         <AllEvents />
     </div>
 </template>
@@ -13,7 +11,6 @@
 
 import Nav from '../../components/Nav/Nav.vue'
 import Search from '../../components/Search/Search.vue'
-// import FeaturedEvents from '../../components/FeaturedEvents/FeaturedEvents.vue'
 import AllEvents from '../../components/AllEvents/AllEvents.vue'
 import Carousel from '../../components/Carousel/Carousel.vue'
 import { mapActions } from 'vuex'

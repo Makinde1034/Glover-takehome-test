@@ -1,10 +1,10 @@
 <template>
 
     <div class="featured">
-        <div v-if="eventsLoading" >
+        <div style="width : 100%" v-if="eventsLoading" >
             <FeaturedSkeleton />
         </div>
-        <div v-else>
+        <div class="featured__wrap" v-else>
             <carousel :color="red" :items-to-show="2" :wrap-around="true">
                 <slide v-for="(items,index)  in 4" :key="index">
                     <div  class="item">
@@ -12,10 +12,10 @@
                             <img :src="getImg(index)" alt="">
                         </div>
                         <div class="item__title">
-                            <p>{{events[index]?.title}}</p>
+                            <p>{{getEventTitle(index)}}</p>
                         </div>
                         <div class="location__date" >
-                            <div style="marginRight:20px" class="loc" >
+                            <div id="loc" style="marginRight:20px" class="loc" >
                                 <img id="location__image" src="../../assets/images/akar-icons_location.png" alt="">
                                 <p>{{events[index]?.venue.city}}</p>
                             </div>
@@ -25,9 +25,19 @@
                             </div>
                             
                         </div>
-                        <div class="date">
-                            <p> <img src="../../assets/images/price.png" alt=""> Starting from <span>₦15000</span> </p>
-                            <button>Buy Ticket</button>
+                        <div class="price">
+                            <div class="price__wrp">
+                                <img src="../../assets/images/price.png" alt="">
+                                <div class="price__price">
+                                    <p class="start">Starting from </p>
+                                    <p class="naira">₦15000 </p> 
+                                </div>
+                                  
+                            </div>
+                            <a :href="events[index]?.url">
+                                <button>Buy Ticket</button>
+                            </a>
+                            
                         </div>
                     </div>
                 </slide>
@@ -72,9 +82,7 @@ export default {
             eventsLoading : (state)=> state.TicketModule.loadingEvents,
             events : (state) => state.TicketModule.tickets
         }),
-    
 
-        
         
 
     },
@@ -86,6 +94,10 @@ export default {
         // format date
         getDate(date){
            return  formatDate(date)
+        },
+
+        getEventTitle(index){
+            return images[index].title
         }
     }
 
@@ -94,160 +106,207 @@ export default {
 
 <style lang="scss" scoped>
 
-$blue  : #372AA4;
+    $blue  : #372AA4;
+    $main__font :  'Nunito', sans-serif;
 
-.featured{
-    margin-top: 30px;
-}
+    .featured{
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
 
 
-.item{
-    // height: 200px;
-    width: 100%;
-    background-color: white;
-    margin-right: 20px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 3px 5px;
-    font-size: 20px;
-    border-radius: 8px;
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
 
-    .item__img{
-        width: 100%;
-        height: 150px;
+        .featured__wrap{
 
-        img{
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-    }
+            max-width: 1500px;
 
-    .item__title{
-        margin-top: 20px;
-        font-weight: 600;
+            .item{
+                // height: 200px;
+                width: 100%;
+                background-color: white;
+                margin-right: 20px;
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 3px 5px;
+                font-size: 20px;
+                border-radius: 8px;
+                align-items: flex-start;
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
 
-        p{
-            font-size: 14px;
-        }
-    }
+                .item__img{
+                    width: 100%;
+                    height: 150px;
 
-    .location__date{
-        display: flex;
-        align-items: center;
-
-        .loc{
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-
-            #loacation__image{
-                height: 18px;
-            }
-
-            p{
-                font-size: 15px;
-                color: #6C757D;
-
-            }
-
-            img{
-                height: 16px;
-                margin-right: 10px;
-            }
-        }
-    }
-
-    .date{
-        margin-top: 0px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        p{
-            font-size: 15px;
-            color: #6C757D;
-            text-align: left;
-
-            span{
-                color: #372AA4;
-                font-weight: 600;
-            }
-
-            img{
-                margin-right: 10px;
-                height: 16px;
-            }
-        }
-
-        button{
-
-            padding: 8px 10px;
-            background: none;
-            border: 1px solid $blue;
-            border-radius: 6px;
-            color: $blue;
-            margin-top: 10px;
-            font-weight: 600;
-            font-size: 12px;
-            cursor: pointer;
-        }
-    }
-   
-}
-
-@media screen and (max-width:481px) {
-
-.featured{
-
-    .item{
-
-        .item__img{
-
-            .item__title{
-
-            }
-        }
-
-        .location__date{
-
-            flex-direction: column;
-            align-items: flex-start;
-
-            .loc{
-
-                img{
-                    height: 12px;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 8px;
+                    }
                 }
 
-                p{
-                    font-size: 14px;
+                .item__title{
+                    margin-top: 20px;
+                    font-weight: 600;
+
+                    p{
+                        font-size: 14px;
+                        font-family: $main__font;
+                    }
                 }
+
+                .location__date{
+                    display: flex;
+                    align-items: center;
+
+                    .loc{
+                        display: flex;
+                        align-items: center;
+                        margin-top: 10px;
+
+                        #loacation__image{
+                            height: 20px;
+                        }
+
+                        p{
+                            font-size: 15px;
+                            color: #6C757D;
+                            font-family: $main__font;
+
+                        }
+
+                        img{
+                            height: 15px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+
+                .price{
+
+                    margin-top: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    .price__wrp{
+                        display: flex;
+
+                        img{
+                            margin-right: 10px;
+                            height: 15px;
+                        }
+
+                        .price__price{
+
+                            display: flex;
+                        }
+
+                        .start{
+                            margin-right: 10px;
+                            
+                        }
+
+                        .naira{
+                            color :#372AA4;
+                            font-weight: 600;
+                            font-size: 16px;
+                        }
+
+                        p{
+                            
+                            font-size: 15px;
+                            color: #6C757D;
+                            font-family: $main__font;
+                        }
+                    }
+
+                    button{
+                        padding: 8px 10px;
+                        background: none;
+                        border: 1px solid $blue;
+                        border-radius: 6px;
+                        color: $blue;
+                        margin-top: 10px;
+                        font-weight: 600;
+                        font-size: 12px;
+                        cursor: pointer;
+                        font-family: $main__font;
+                    }
+                }
+
             }
+
+               
+        
         }
+    }
+    @media screen and (max-width:481px) {
 
-        .date{
+    .featured{
 
-            flex-direction: column;
-            align-items: flex-start;
-            margin-top: 10px;
-            margin-right: 5px;
+        .item{
 
-            P{  
-                text-align: left;
-                span{
-                    display: none;
+            .item__img{
+
+                .item__title{
+
                 }
             }
 
+            .location__date{
+
+                flex-direction: column;
+                align-items: flex-start;
             
+
+                .loc{
+
+                    img{
+                        height: 12px;
+                        
+                    }
+
+                    p{
+                        font-size: 14px;
+                    }
+                }
+
+                #loc{
+                    margin-left: -5px;
+                }
+            }
+
+            .price{
+
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+                
+
+                .price__wrp{
+                    display: flex;
+                    
+
+                    img{
+                        margin-right: 10px;
+                        height: 14px;
+                    }
+
+                    p{
+                        font-size: 14px;
+                    }
+
+                    .price__price{
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+                }
+            }
+
+
         }
-
-
-    }
     }  
 }
 
