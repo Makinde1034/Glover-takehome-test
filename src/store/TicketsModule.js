@@ -23,11 +23,11 @@ const toggle = {
                 const tickets = await ticketsApi.getTickets();
                 const res = await tickets.json();
                 commit("setTickets",res)
-                console.log(res);
+                
                 commit("eventsRequestSuccess")
 
             }catch(err){
-                console.log(err);
+                
                 commit("eventsRequestFailure")
             }
 
