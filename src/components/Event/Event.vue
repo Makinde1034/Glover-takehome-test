@@ -4,7 +4,7 @@
             <img :src="getRandomImg()" alt="evetn image">
         </div>
         <div class="event__name__date">
-            <p class="title" >{{ !name ? getRandomEventTitle(index) : name}}</p>
+            <p class="title" >{{ !name ? getRandomEventTitle() : name}}</p>
             <div class="date">
                 <p>{{new Date(dateTime).getDate()}} {{month[new Date(dateTime).getMonth()].substring(0,3)}}</p>
             </div>
@@ -41,13 +41,13 @@ export default {
     methods:{
         // select random images from dummy images based on event index
         getRandomImg(){
-            const rnd = Math.floor(Math.random() * 26) + 1
+            const rnd = Math.floor(Math.random() * 23) + 1
             return images[rnd]?.url
            
         },
 
         getRandomEventTitle(){
-            const rnd = Math.floor(Math.random() * 26) + 1
+            const rnd = Math.floor(Math.random() * 23) + 1
             return images[rnd]?.title
           
         }
@@ -84,7 +84,7 @@ $main__font :  'Nunito', sans-serif;
 
     .event__image{
         height: 150px;
-        border: 1px solid rgb(198, 193, 193);
+        border: 1px solid grey;
         border-radius:10px ;
         img{
             width: 100%;
