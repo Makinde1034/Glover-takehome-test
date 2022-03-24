@@ -262,6 +262,8 @@ export default {
             
 
                 .loc{
+                    
+                    align-items: flex-start;
 
                     img{
                         height: 12px;
