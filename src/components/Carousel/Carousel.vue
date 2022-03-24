@@ -351,7 +351,7 @@ export default {
 
                         .start{
                             font-size: 12px;
-                            display: none;
+                            // display: none;
                         }
 
                         .naira{
