@@ -1,7 +1,7 @@
 <template>
     <div class="search" >
         <div class="search__in">
-            <form  class="input__wrap">
+            <form @submit.prevent="handleSubmit"  class="input__wrap">
                 <img  src="../../assets/images/Search.png" alt="searc-icon"> 
                 <input required v-on:input="search($event)"  v-model="textField" placeholder="Search artist e.g John legend" type="text">
             </form>
@@ -28,7 +28,8 @@ export default {
             this.searchEvent(this.textField);
             this.setSearchValue(e.target.value)
             
-        }
+        },
+        
     },
     computed:{
        ...mapState({
