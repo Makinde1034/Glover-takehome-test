@@ -6,8 +6,8 @@
         </div>
         <div class="featured__wrap" v-else>
             <p class="featured__header" >Featured events</p>
-            <carousel :color="red" :items-to-show="2" :wrap-around="true">
-                <slide v-for="(items,index)  in 4" :key="index">
+            <carousel :slideWidth = "500"  :color="red" :items-to-show="2" :breakpoints="breakpoints" :wrap-around="true">
+                <slide  v-for="(items,index)  in 4" :key="index">
                     <div  class="item">
                         <div class="item__img">
                             <img :src="getImg(index)" alt="">
@@ -18,10 +18,10 @@
                         <div class="location__date" >
                             <div id="loc" style="marginRight:20px" class="loc" >
                                 <img id="location__image" src="../../assets/images/akar-icons_location.png" alt="">
-                                <p>{{events[index]?.venue.city}}</p>
+                                <p class="city">{{events[index]?.venue.city}}</p>
                             </div>
                             <div class="loc">
-                                <img src="../../assets/images/calendar.png" alt="">
+                                <img class="cal" src="../../assets/images/calendar.png" alt="">
                                 <p id="day" >{{getDate(events[index]?.datetime)}}</p>
                             </div>
                             
@@ -74,7 +74,21 @@ export default {
     },
     data(){
         return{
-            
+            breakpoints: {
+                // 700px and up
+                300 :{
+                    itemsToShow: 1.5,
+                },
+                700: {
+                    itemsToShow: 1.5,
+                    // snapAlign: 'center',
+                },
+                // 1024 and up
+                1024: {
+                    itemsToShow: 2,
+                    // snapAlign: 'start',
+                },
+            },
         }
     },
     computed:{
@@ -139,7 +153,7 @@ export default {
                 align-items: flex-start;
                 display: flex;
                 flex-direction: column;
-                padding: 10px;
+                padding: 15px;
 
                 .item__img{
                     width: 100%;
@@ -172,8 +186,10 @@ export default {
                         align-items: center;
                         margin-top: 10px;
 
-                        #loacation__image{
-                            height: 20px;
+                        #location__image{
+                            height: 18px;
+                            margin-right: 10px;
+                            
                         }
 
                         p{
@@ -186,6 +202,10 @@ export default {
                         img{
                             height: 15px;
                             margin-right: 10px;
+                        }
+
+                        #day{
+                            font-size: 14px;
                         }
                     }
                 }
@@ -218,7 +238,7 @@ export default {
                         .naira{
                             color :#372AA4;
                             font-weight: 600;
-                            font-size: 16px;
+                            font-size: 14px;
                         }
 
                         p{
@@ -254,83 +274,98 @@ export default {
 
     .featured{
 
-        .item{
+        .featured__wrap{
 
-            .item__img{
+        
 
-                .item__title{
+            .item{
+                padding: 10px;
 
+                
+                .item__img{
+
+                    .item__title{
+
+                    }
                 }
-            }
 
-            .location__date{
+                .location__date{
 
-                flex-direction: column;
-                align-items: flex-start;
-            
-
-                .loc{
-
+                    flex-direction: column;
                     align-items: flex-start;
-
-                    img{
-                        height: 12px;
-                        
-                    }
-
-                    p{
-                        font-size: 8px;
-                    }
-
-                    #day{
-                        font-size: 13px;
-                    }
-                }
-
-                #loc{
-                    margin-left: -5px;
-                }
-            }
-
-            .price{
-
-                margin-top: 10px;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
+        
                 
 
-                .price__wrp{
+                    .loc{
 
-                    // flex-direction: column;
-                    align-items: flex-start;
-
-                    img{
-                        margin-right: 10px;
-                        height: 14px;
-                    }
-
-                    p{
-                        font-size: 12px;
-                    }
-
-                    .start{
-                        font-size: 12px;
-                        display: none;
-                    }
-
-                    .naira{
-                        font-size: 8px;
-                    }
-
-                    .price__price{
-                        // flex-direction: column;
                         align-items: flex-start;
+
+                        img{
+                            // height: 12px;
+                            // margin-right: 10px;
+                            
+                        }
+                        #location__image{
+                            margin-left : 3px;
+                        }
+
+                        .city{
+                            font-size: 12px;
+
+                        }
+
+                        .cal{
+                            height: 13px;
+                        }
+
+                        #day{
+                            font-size: 13px;
+                        }
+                    }
+
+                    #loc{
+                        margin-left: -5px;
                     }
                 }
+
+                .price{
+
+                    margin-top: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    
+
+                    .price__wrp{
+
+                        // flex-direction: column;
+                        align-items: flex-start;
+
+                        img{
+                            margin-right: 10px;
+                            height: 14px;
+                        }
+
+                        
+
+                        .start{
+                            font-size: 12px;
+                            display: none;
+                        }
+
+                        .naira{
+                            font-size: 12px;
+                        }
+
+                        .price__price{
+                            // flex-direction: column;
+                            align-items: flex-start;
+                        }
+                    }
+                }
+
+
             }
-
-
         }
     }  
 }

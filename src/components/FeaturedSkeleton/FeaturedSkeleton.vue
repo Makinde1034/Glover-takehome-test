@@ -10,11 +10,11 @@
             <div class="city"></div>
             <div class="price"></div>
         </div>
-        <div class="box">
+        <!-- <div class="box">
             <div class="img"></div>
             <div class="city"></div>
             <div class="price"></div>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
 
 .feat__ske{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr ;
     gap: 30px;
     margin-bottom: 50px;
 
@@ -38,7 +38,7 @@ export default {
         border-radius: 10px;
 
         .img{
-            height: 100px;
+            height: 150px;
             background: #ECEAED;
             animation: pulse 1s infinite ease-in-out;
             border-radius: 5px;
@@ -79,7 +79,7 @@ export default {
 
 @media screen and (max-width:481px) {
     .feat__ske{
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }
 </style> 

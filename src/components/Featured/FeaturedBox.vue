@@ -10,12 +10,12 @@
 
     <div class="location__date__button" >
       <div class="location__date" >
-				<img src="../../assets/images/akar-icons_location.png" alt="location">
-				<p class="loc__p">{{location}}</p>
-				<img src="../../assets/images/calendar.png" alt="calender-icon">
-				<p>{{new Date(dateTime).toDateString()}}</p>
-			</div>
-			<button>Buy Ticket</button>
+			<img src="../../assets/images/akar-icons_location.png" alt="location">
+			<p class="loc__p">{{location}}</p>
+			<img src="../../assets/images/calendar.png" alt="calender-icon">
+			<p class="date" >{{new Date(dateTime).toDateString()}}</p>
+		</div>
+		<button>Buy Ticket</button>
     </div>
   </div>
 </template>
@@ -104,6 +104,8 @@ $button_border :  #372AA4;
 			.loc__p{
 				margin-right: 10px;
 			}
+
+			
 			
 		}
 
