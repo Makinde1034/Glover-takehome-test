@@ -239,6 +239,7 @@ export default {
                         font-weight: 600;
                         font-size: 12px;
                         cursor: pointer;
+                        outline: none;
                         font-family: $main__font;
                     }
                 }
