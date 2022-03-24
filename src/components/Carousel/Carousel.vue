@@ -154,6 +154,7 @@ export default {
                 display: flex;
                 flex-direction: column;
                 padding: 15px;
+                z-index: 20000;
 
                 .item__img{
                     width: 100%;
@@ -368,6 +369,25 @@ export default {
             }
         }
     }  
+}
+
+.carousel__slide > .item {
+  transform: scale(1);
+  opacity: 0.5;
+  transition: 0.5s;
+}
+.carousel__slide--visible > .item {
+  opacity: 1;
+  transform: rotateY(0);
+}
+.carousel__slide--next > .item {
+  transform: scale(0.8) translate(-10px);
+}
+.carousel__slide--prev > .item {
+  transform: scale(0.8) translate(10px);
+}
+.carousel__slide--active > .item {
+  transform: scale(0.9999);
 }
 
 
