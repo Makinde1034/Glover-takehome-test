@@ -84,7 +84,7 @@ $main__font :  'Nunito', sans-serif;
 
     .event__image{
         height: 150px;
-        border: 1px solid grey;
+
         border-radius:10px ;
         img{
             width: 100%;
