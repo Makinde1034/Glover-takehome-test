@@ -283,11 +283,13 @@ export default {
                 margin-top: 10px;
                 display: flex;
                 flex-direction: column;
+                align-items: flex-start;
                 
 
                 .price__wrp{
-                    display: flex;
-                    
+
+                    // flex-direction: column;
+                    align-items: flex-start;
 
                     img{
                         margin-right: 10px;
@@ -298,12 +300,17 @@ export default {
                         font-size: 12px;
                     }
 
-                    .start,.naire{
+                    .start{
                         font-size: 12px;
+                        display: none;
+                    }
+
+                    .naira{
+                        font-size: 8px;
                     }
 
                     .price__price{
-                        flex-direction: column;
+                        // flex-direction: column;
                         align-items: flex-start;
                     }
                 }
