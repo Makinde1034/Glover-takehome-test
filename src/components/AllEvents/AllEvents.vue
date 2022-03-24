@@ -5,9 +5,10 @@
     </div>
     <div v-else class="all__in">
         <p class="all_h">All Events</p>
+        <!-- condition checking if there is a search value in search bar -->
         <div v-if="searchValue.length > 0" >
             
-            <!-- render sections based on search -->
+            <!-- condition checking if search result is greater than 0 -->
             <section class="events"  v-if="searchedEvents.length > 0  " >
                 <div class="event__box" v-for="(ticket, index) in searchedEvents" :key="index"  >
                     <Event 
@@ -19,10 +20,12 @@
                     />
                 </div>
             </section> 
-            <div class="no-result" v-else >
-                not found
+            <!-- if there are no results display a no result found -->
+            <div class="no__result" v-else >
+                <p>No result found for "{{searchValue}}"</p>
             </div>  
         </div>
+        <!-- display all events if nothing is being searched -->
         <section v-else class="events" >
             <div class="event__box" v-for="(ticket, index) in currentTemplates" :key="index"  >
                 <Event 
@@ -34,7 +37,7 @@
                 />
             </div>
         </section>
-        <div class="pagination">
+        <div  class="pagination">
             <img @click="prev()" src="../../assets/images/next.png" alt="">
             <span>{{currentPage}}</span>
             <img @click="next()" src="../../assets/images/next.png" alt="">
@@ -158,11 +161,23 @@ export default {
                 box-shadow: rgba(154, 154, 177, 0.2) 0px 2px 5px 0px, rgba(128, 125, 125, 0.07) 0px 1px 1px 0px;
                 border-radius: 10px;
                 transition: 0.3s ease-in;
-                max-height: 500px;
+                max-height: 360px;
             }
 
             .event__box:hover{
                 transform:scale(1.1);
+            }
+        }
+
+        .no__result{
+            min-height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            p{
+                color: #372AA4;
+                 font-family: 'Nunito', sans-serif;
             }
         }
 
