@@ -275,7 +275,7 @@ export default {
                     }
 
                     #day{
-                        font-size: 8px;
+                        font-size: 13px;
                     }
                 }
 
