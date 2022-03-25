@@ -98,15 +98,12 @@ $button_border :  #372AA4;
 			p{
 				color: #6C757D;
 				font-size: 14px;
-
 			}
 
 			.loc__p{
 				margin-right: 10px;
 			}
-
-			
-			
+	
 		}
 
 		button{

@@ -54,7 +54,7 @@ export default {
 
         .input__wrap{
 
-            width: 30%;
+            width: 40%;
             display: flex;
             align-items: center;
             border: 1px solid #E8E8E8;
