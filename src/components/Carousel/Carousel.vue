@@ -86,7 +86,7 @@ export default {
                 // 1024 and up
                 1024: {
                     itemsToShow: 2,
-                    // snapAlign: 'start',
+                    snapAlign: 'start',
                 },
             },
         }
