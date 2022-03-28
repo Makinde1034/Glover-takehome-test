@@ -390,5 +390,10 @@ export default {
   transform: scale(0.9999);
 }
 
+.carousel__prev--in-active,
+.carousel__next--in-active {
+  display: none;
+}
+
 
 </style> 
