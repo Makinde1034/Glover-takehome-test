@@ -1,7 +1,7 @@
 <template>
     <div class="event" >
         <div class="event__image">
-            <img :src="getRandomImg()" alt="evetn image">
+            <img :src="!imageUrl ? getRandomImg() : imageUrl" alt="event image">
         </div>
         <div class="event__name__date">
             <p class="title" >{{ !name ? getRandomEventTitle() : name}}</p>

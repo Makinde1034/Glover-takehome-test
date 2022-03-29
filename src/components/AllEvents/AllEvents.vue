@@ -17,6 +17,7 @@
                         :location = "ticket.venue.city"
                         :dateTime = "ticket.datetime"
                         :url = "ticket.url"
+                        :imageUrl = "ticket.artist?.thumb_url"
                     />
                 </div>
             </section> 
@@ -34,6 +35,7 @@
                     :location = "ticket.venue.city"
                     :dateTime = "ticket.datetime"
                     :url = "ticket.url"
+                    :imageUrl = "ticket.artist?.thumb_url"
                 />
             </div>
         </section>
